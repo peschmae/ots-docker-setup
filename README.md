@@ -12,6 +12,11 @@ repository.
 The `redis.conf` is currently not in use, since it somehow crashed the redis 
 server.
 
+In the end I aim to make it into a kubernetes deployment, using ConfigMaps and 
+Secrets.  
+To make it work, I might need to script a few things since the application 
+doesn't load environment variables as far as I can see.  
+
 ## Multistage build
 I've started a multistage build setup, but this resulted in the CSS files not 
 beeing loaded and I got no clue why...
