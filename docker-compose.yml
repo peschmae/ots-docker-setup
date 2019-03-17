@@ -1,0 +1,14 @@
+---
+version: '3'
+services:
+  redis:
+    image: redis:3-alpine
+  ots:
+    image: psmae/ots
+    ports:
+      - "7143:7143"
+    volumes:
+      - ./ots.config:/etc/onetime/config
+    depends_on:
+      - "redis"
+    command: ["bundle", "exec", "thin", "-e", "dev", "-p", "7143", "-R", "config.ru", "start"]
